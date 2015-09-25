@@ -23,8 +23,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#bootstrap
+gem 'bootstrap-sass', '~> 3.3.5'
+
 #user login
 gem 'devise'
+#other logins
+gem 'omniauth'
+gem 'omniauth-facebook'
 #pictures and picture galeries
 gem 'carrierwave'          
 gem 'mini_magick'  
