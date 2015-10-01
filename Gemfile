@@ -36,6 +36,9 @@ gem 'carrierwave'
 gem 'mini_magick'  
 gem "paperclip", "~> 4.2"
 
+gem 'blueimp-file-upload-rails', '~> 8.6.1.1'
+gem 'blueimp-gallery-rails', '~> 2.7.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
