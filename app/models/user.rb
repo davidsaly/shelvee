@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :cooperations
   has_many :albums, :through => :cooperations
 
+  has_many :albums, :foreign_key => :owner_id
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end
