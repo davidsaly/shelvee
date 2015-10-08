@@ -1,33 +1,40 @@
-<p id="notice"><%= notice %></p>
 
-<h1>New Album</h1>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
 
-<h1>Listing Albums</h1>
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h3>New Album</h3>
 
-  <tbody>
-    <% @albums.each do |album| %>
+  <%= render 'form' %>
+
+  <h3>My Albums</h3>
+
+  <table>
+    <thead>
       <tr>
-        <td><%= album.title %></td>
-        <td><%= album.description %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @albums.each do |album| %>
+        <tr>
+          <td><%= album.title %></td>
+          <td><%= album.description %></td>
+          <td><%= link_to 'Show', album %></td>
+          <td><%= link_to 'Edit', edit_album_path(album) %></td>
+          <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Album', new_album_path %>
+  <br>
+ 
+  </div>
+</div>
+
