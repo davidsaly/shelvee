@@ -25,19 +25,22 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = @album.photos.new(photo_params)
+    #@photo = @album.photos.new(photo_params)
+    
+    @photo = @album.photos.create(photo_params) #params[:painting]
+    @photo.belongings.create!(album: @album)
 
-    respond_to do |format|
-      if @photo.save
-        @photo.belongings.create!(album: @album)
+    #respond_to do |format|
+      #if @photo.save
+        #@photo.belongings.create!(album: @album)
         #format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
-        format.html { redirect_to @album, notice: 'Photo was successfully created.' }
-        format.json { render :show, status: :created, location: @album }
-      else
+       # format.html { redirect_to @album, notice: 'Photo was successfully created.' }
+       # format.json { render :show, status: :created, location: @album }
+      #else
         #format.html { render :new }
         #format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
-    end
+      #end
+    #end
   end
 
   # PATCH/PUT /photos/1

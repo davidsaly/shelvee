@@ -22,21 +22,50 @@
 		</div>
 	</div>
 
-<div class="container-fluid">
-  <div class="row center">
-    <% @photos.each do |photo| %>
-      <div class="col-md-4">
-
-          <div class="thumbnail">
-            
-            <div class="caption">
-              <h3><%= photo.description %></h3>
-            </div>
-              <span class="content" class="img-responsive">
-                <%= image_tag photo.picture.url if photo.picture? %>
-              </span>
-          </div>
-      </div>  
-    <% end %>
-  </div>
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
 </div>
+</script>
+
+<%#showphotos was here %>
+
+  <div id="blueimp-gallery" class="blueimp-gallery">
+	<div class="slides"></div>
+	<h3 class="title"></h3>
+	<a class="prev">‹</a>
+	<a class="next">›</a>
+	<a class="close">×</a>
+	<a class="play-pause"></a>
+	<ol class="indicator"></ol>
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<div id="links" id="showphotos">
+		<% @photos.each do |photo| %>
+			<%= link_to photo.picture.url , :data => { :gallery => '' } do %>
+			<%= image_tag (photo.picture.url(:thumb))  %>
+			<% end %>
+		<% end %>
+	</div>

@@ -14,9 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require jquery-fileupload
-//= require jquery-fileupload/jquery-ui
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+//= require bootstrap-image-gallery
+//= require blueimp-helper
+//= require blueimp-gallery-fullscreen
+//= require blueimp-gallery-indicator
+//= require blueimp-gallery
+//= require home
 //= require_tree .
-
 
 
