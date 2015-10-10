@@ -67,5 +67,7 @@
 			<%= link_to photo.picture.url , :data => { :gallery => '' } do %>
 			<%= image_tag (photo.picture.url(:thumb))  %>
 			<% end %>
+			<%= link_to "delete", [@album, photo], method: :delete,
+                                       data: { confirm: "You sure?" } %>
 		<% end %>
 	</div>

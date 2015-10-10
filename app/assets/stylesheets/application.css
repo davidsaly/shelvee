@@ -12,11 +12,11 @@
 
  *= require jquery.fileupload
  *= require jquery.fileupload-ui
- *= require_tree .
- *= require_self
  *= require bootstrap-image-gallery
  *= require blueimp-gallery
  *= require blueimp-gallery-indicator
+ *= require_tree .
+ *= require_self
 
  */
 

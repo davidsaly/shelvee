@@ -3,7 +3,7 @@ class Album < ActiveRecord::Base
 	has_many :users, :through => :cooperations
 
 	has_many :belongings
-	has_many :photos, :through => :belongings
+	has_many :photos, -> { uniq }, :through => :belongings
 	
 	accepts_nested_attributes_for :photos
 

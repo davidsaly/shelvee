@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
   before_action :set_album
+  before_action :correct_user, only: [:destroy]
 
   # GET /photos
   # GET /photos.json
@@ -25,9 +26,10 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    #@photo = @album.photos.new(photo_params)
     
     @photo = @album.photos.create(photo_params) #params[:painting]
+    @photo.owner_id = current_user.id
+    @photo.save
     @photo.belongings.create!(album: @album)
 
     #respond_to do |format|
@@ -60,9 +62,13 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
+    @belonging = @photo.belongings
+    @photo.belongings.delete(@belonging)
+    #@photo.belongings.find_by(id: @belonging).destroy
+    @belonging.destroy
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to photos_url, notice: 'Photo was successfully destroyed.' }
+      format.html { redirect_to @album, notice: 'Photo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -74,11 +80,16 @@ class PhotosController < ApplicationController
     end
 
     def set_album
-      @album = Album.find params[:album_id]
+      @album = current_user.albums.find params[:album_id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:description, :picture)
+    end
+
+     def correct_user
+      @photo = current_user.photos.find_by(id: params[:id])
+      redirect_to root_url if @photo.nil?
     end
 end

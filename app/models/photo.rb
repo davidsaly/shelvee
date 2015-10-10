@@ -3,7 +3,7 @@ class Photo < ActiveRecord::Base
 	has_many :users, :through => :contributions
 
 	has_many :belongings
-	has_many :albums, :through => :belongings
+	has_many :albums, -> { uniq }, :through => :belongings
 
 	accepts_nested_attributes_for :albums
 	
