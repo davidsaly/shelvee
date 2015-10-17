@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	document.getElementById('links').onclick = function(event) {
+	document.getElementById('masonry-container').onclick = function(event) {
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
@@ -7,4 +7,26 @@ $(document).ready(function(){
         links = this.getElementsByTagName('a');
     blueimp.Gallery(links, options);
 	};
-})
+});
+
+$("select").imagepicker();
+
+$(document).ready( function(isLoaded) {
+
+   $('.grid').masonry({
+     itemSelector: '.grid-item',
+     isAnimated: true,
+     isFitWidth: true
+    });
+
+  $('.grid').imagesLoaded( function(){
+    $('.grid').masonry({
+     itemSelector: '.grid-item',
+     isAnimated: true,
+     isFitWidth: true
+    });
+  });
+  
+});
+
+

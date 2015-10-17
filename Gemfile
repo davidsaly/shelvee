@@ -39,6 +39,10 @@ gem "paperclip", "~> 4.2"
 gem 'blueimp-file-upload-rails', '~> 8.6.1.1'
 gem 'blueimp-gallery-rails', '~> 2.7.0'
 gem "jquery-fileupload-rails"
+gem 'image-picker-rails'
+
+#grid layout of the gallery
+gem 'masonry-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

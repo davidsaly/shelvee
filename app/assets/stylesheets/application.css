@@ -15,8 +15,12 @@
  *= require bootstrap-image-gallery
  *= require blueimp-gallery
  *= require blueimp-gallery-indicator
- *= require_tree .
+ *= require image-picker
+ *= require 'masonry/basic'
+ *= require 'masonry/transitions'
  *= require_self
+ *= require_tree .
+
 
  */
 

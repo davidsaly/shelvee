@@ -1,5 +1,8 @@
 <% if @photo.new_record? %>
   alert("Failed to upload the photo: <%= j @photo.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-  $("#showphotos").append("<%= j render(@photo) %>");
+	var $newPhoto = $("<%= j render (@photo) %>");
+  	$("#to-be-appended").append($newPhoto); //.masonry( 'appended', $newPhoto, true).masonry( 'reload' );
+  	$('.grid').masonry( 'reload' )
+  	//$('.grid').masonry( 'reloadItems' )
 <% end %>

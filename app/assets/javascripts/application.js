@@ -21,6 +21,10 @@
 //= require blueimp-gallery-fullscreen
 //= require blueimp-gallery-indicator
 //= require blueimp-gallery
+//= require image-picker
+//= require masonry/jquery.masonry
+//= require masonry/jquery.imagesloaded.min
+//= require isotope/jquery.isotope
 //= require home
 //= require_tree .
 

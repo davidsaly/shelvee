@@ -4,3 +4,32 @@
 .thumbnail img {
     width: 100%; 
 }
+
+img.gallery-photos:hover {
+  background-color: #ffffff;
+  opacity: 0.3;
+}
+
+img.gallery-photos {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    vertical-align: top;
+}
+
+a.photo-links {
+	display: inline-block;		
+}
+
+active-photo {
+		
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-item {
+
+}
