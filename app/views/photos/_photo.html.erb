@@ -1,10 +1,12 @@
+	
+ <li class="grid-item col3 thumbnail">
+	
+	
+	<%= image_tag (photo.picture.url(:thumb)), class: "gallery-photos" %>
+ 	<%= link_to "delete", [@album, photo], method: :delete,
+                                       data: { confirm: "You sure?" }, class: "btn btn-default delete-link"%>
+    <%= link_to "show", photo.picture.url , :data => { :gallery => '' }, class: "photo-links btn btn-default show-link" %>
 
-
-	<%= link_to photo.picture.url , :data => { :gallery => '' }, class: "photo-links" do %>
-	 <%= image_tag (photo.picture.url(:thumb)), class: "gallery-photos grid-item col3"  %>
- 	<% end %>
-
-<%#= link_to "delete", [@album, photo], method: :delete,
-                                       data: { confirm: "You sure?" } %>
+</li>
 
 

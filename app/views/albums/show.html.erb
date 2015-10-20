@@ -63,13 +63,14 @@
 </div>
 
     <div id="masonry-container" class="grid infinite-scroll clearfix" > 
-        <div id="to-be-appended" >
+        <ul id="to-be-appended" >
             <%= render @photos %>
-        </div>
+        </ul>
     </div> 
 
     <%#transitions-enabled  %>
 
     <%#= select_tag 'photolist', :multiple => true, class: 'image-picker', class: 'show-html', options_for_select(@photos.collect{ |u| [u.picture, u.id] }) %>
 
-    <%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)}] }), :multiple => true, class: 'image-picker show-html' %>
+<%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> <%#image-picker class="thumbnails image-picker-selector" %>
+   

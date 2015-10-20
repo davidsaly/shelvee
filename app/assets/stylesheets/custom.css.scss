@@ -5,23 +5,20 @@
     width: 100%; 
 }
 
-img.gallery-photos:hover {
-  background-color: #ffffff;
-  opacity: 0.3;
+.grid-item:hover img {
+    background-color: #ffffff;
+    opacity: 0.3;   
+}
+
+.grid-item:hover a {
+   display: inline;  
 }
 
 img.gallery-photos {
     filter: none;
     -webkit-filter: grayscale(0);
     vertical-align: top;
-}
-
-a.photo-links {
-	display: inline-block;		
-}
-
-active-photo {
-		
+    
 }
 
 .grid:after {
@@ -31,5 +28,23 @@ active-photo {
 }
 
 .grid-item {
+  margin: 5px;
+  positions: relative;
+  z-index:100;
+}
 
+.delete-link {
+    position: absolute;
+    top: 10px; /*your button position*/
+    right: 10px; /*your button position*/
+    z-index:97;
+    display: none;
+}
+
+.show-link {
+  position:absolute;
+  top: 50px;
+  right: 10px;
+  z-index:97;
+  display: none;
 }

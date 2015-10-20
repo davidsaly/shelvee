@@ -4,12 +4,14 @@ $(document).ready(function(){
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
         options = {index: link, event: event},
-        links = this.getElementsByTagName('a');
+        links = this.getElementsByClassName('show-link');
     blueimp.Gallery(links, options);
 	};
 });
 
 $("select").imagepicker();
+$("#to-be-appended").imagepicker();
+
 
 $(document).ready( function(isLoaded) {
 
@@ -30,3 +32,17 @@ $(document).ready( function(isLoaded) {
 });
 
 
+$(document).ready(function () {
+    $("#selectImage").imagepicker({
+        hide_select: true
+    });
+
+    var $container = $('.image_picker_selector');
+    // initialize
+    $container.imagesLoaded(function () {
+        $container.masonry({
+            columnWidth: 30,
+            itemSelector: '.thumbnail'
+        });
+    });
+});
