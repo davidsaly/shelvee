@@ -9,28 +9,6 @@ $(document).ready(function(){
 	};
 });
 
-$("select").imagepicker();
-$("#to-be-appended").imagepicker();
-
-
-$(document).ready( function(isLoaded) {
-
-   $('.grid').masonry({
-     itemSelector: '.grid-item',
-     isAnimated: true,
-     isFitWidth: true
-    });
-
-  $('.grid').imagesLoaded( function(){
-    $('.grid').masonry({
-     itemSelector: '.grid-item',
-     isAnimated: true,
-     isFitWidth: true
-    });
-  });
-  
-});
-
 
 $(document).ready(function () {
     $("#selectImage").imagepicker({

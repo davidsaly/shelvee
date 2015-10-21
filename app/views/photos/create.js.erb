@@ -2,7 +2,10 @@
   alert("Failed to upload the photo: <%= j @photo.errors.full_messages.join(', ').html_safe %>");
 <% else %>
 	var $newPhoto = $("<%= j render (@photo) %>");
-  	$("#to-be-appended").append($newPhoto); //.masonry( 'appended', $newPhoto, true).masonry( 'reload' );
-  	$('.grid').masonry( 'reload' )
+  	$("#selectImage").append($newPhoto); //.masonry( 'appended', $newPhoto, true).masonry( 'reload' );
+  	 $("#selectImage").imagepicker({
+        hide_select: true
+    });
+  	$('.image_picker_selector').masonry( 'reload' )
   	//$('.grid').masonry( 'reloadItems' )
 <% end %>
