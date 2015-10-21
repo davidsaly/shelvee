@@ -106,12 +106,14 @@
       return _results;
     };
 
+    /*
     ImagePicker.prototype.create_picker = function() {
       this.picker = jQuery("<ul class='thumbnails image_picker_selector'></ul>");
       this.picker_options = [];
       this.recursively_parse_option_groups(this.select, this.picker);
       return this.picker;
     };
+    */
 
     ImagePicker.prototype.recursively_parse_option_groups = function(scoped_dom, target_container) {
       var container, option, option_group, _i, _j, _len, _len1, _ref, _ref1, _results;
