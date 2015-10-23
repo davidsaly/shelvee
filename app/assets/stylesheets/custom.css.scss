@@ -7,7 +7,23 @@
 
 .grid-item:hover img {
     background-color: #ffffff;
-    opacity: 0.3;   
+    opacity: 0.3; 
+}
+
+.masonry-brick:hover img {
+    border-color: #CDC9C9;
+    background-color: #ffffff;
+    opacity: 0.3;
+}
+
+.masonry-brick img {
+  border-style: solid;
+  border-width: 4px;
+  border-color: #ffffff;
+}
+
+.masonry-brick:hover a {
+   display: inline;  
 }
 
 .grid-item:hover a {
@@ -48,3 +64,11 @@ img.gallery-photos {
   z-index:97;
   display: none;
 }
+
+.thumbnail {
+    border: 0 none;
+    box-shadow: none;
+    border-radius:0;
+}
+
+

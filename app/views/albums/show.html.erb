@@ -22,6 +22,8 @@
 		</div>
 	</div>
 
+<button class="btn btn-default" id="open-gallery">Open Gallery</button>
+
 <script id="template-upload" type="text/x-tmpl">
     <div class="upload">
       {%=o.name%}
@@ -64,7 +66,7 @@
 
     <div id="masonry-container" class="grid infinite-scroll clearfix" > 
         <ul id="to-be-appended" >
-            <%= render @photos %>
+            <%#= render @photos %>
         </ul>
     </div> 
 
@@ -72,5 +74,5 @@
 
     <%#= select_tag 'photolist', :multiple => true, class: 'image-picker', class: 'show-html', options_for_select(@photos.collect{ |u| [u.picture, u.id] }) %>
 
-<%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> <%#image-picker class="thumbnails image-picker-selector" %>
+<%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-href-src' => album_photo_url(@album, u)},{'data-href-src-img' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> <%#image-picker class="thumbnails image-picker-selector" %>
    

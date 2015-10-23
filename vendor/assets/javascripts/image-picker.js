@@ -107,7 +107,8 @@
     };
 
     ImagePicker.prototype.create_picker = function() {
-      this.picker = jQuery("<ul class='thumbnails image_picker_selector'></ul>");
+      //david added ID here
+      this.picker = jQuery("<ul class='thumbnails image_picker_selector' id='the-gal'></ul>");
       this.picker_options = [];
       this.recursively_parse_option_groups(this.select, this.picker);
       return this.picker;
@@ -272,10 +273,17 @@
     };
 
     ImagePickerOption.prototype.create_node = function() {
-      var image, thumbnail;
+      var image, thumbnail, showlink;
       this.node = jQuery("<li/>");
       image = jQuery("<img class='image_picker_image'/>");
       image.attr("src", this.option.data("img-src"));
+      //david experiment (delete link)
+      deletelink=jQuery("<a data-confirm='You sure?' class='btn btn-default delete-link' rel='nofollow' data-method='delete'>delete</a>");
+      deletelink.attr("href", this.option.data("href-src"))
+      //showlink
+      showlink=jQuery("<a data-gallery='' class='photo-links btn btn-default show-link' >show</a>")
+      showlink.attr("href", this.option.data("href-src-img"))
+
       thumbnail = jQuery("<div class='thumbnail'>");
       thumbnail.click({
         option: this
@@ -283,6 +291,11 @@
         return event.data.option.clicked();
       });
       thumbnail.append(image);
+
+      //david
+      thumbnail.append(deletelink);
+      thumbnail.append(showlink);
+
       if (this.opts.show_label) {
         thumbnail.append(jQuery("<p/>").html(this.label()));
       }

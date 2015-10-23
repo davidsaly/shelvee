@@ -1,36 +1,3 @@
-$(document).ready(function(){
-	document.getElementById('masonry-container').onclick = function(event) {
-    event = event || window.event;
-    var target = event.target || event.srcElement,
-        link = target.src ? target.parentNode : target,
-        options = {index: link, event: event},
-        links = this.getElementsByClassName('show-link');
-    blueimp.Gallery(links, options);
-	};
-});
-
-$("select").imagepicker();
-$("#to-be-appended").imagepicker();
-
-
-$(document).ready( function(isLoaded) {
-
-   $('.grid').masonry({
-     itemSelector: '.grid-item',
-     isAnimated: true,
-     isFitWidth: true
-    });
-
-  $('.grid').imagesLoaded( function(){
-    $('.grid').masonry({
-     itemSelector: '.grid-item',
-     isAnimated: true,
-     isFitWidth: true
-    });
-  });
-  
-});
-
 
 $(document).ready(function () {
     $("#selectImage").imagepicker({
@@ -45,4 +12,19 @@ $(document).ready(function () {
             itemSelector: '.thumbnail'
         });
     });
+
+
+    document.getElementById('open-gallery').onclick = function(event) {
+    //document.getElementsByClassName('show-link').onclick = function(event) {
+    event = event || window.event;
+    var gal = document.getElementById('the-gal');
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = gal.getElementsByClassName('show-link');
+        blueimp.Gallery(links, options);
+    };
+
 });
+
+
