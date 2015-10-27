@@ -14,6 +14,7 @@ class AlbumsController < ApplicationController
   def show
     @photo = Photo.new
     @photos= @album.photos.all
+    @selection=@album.selections.new
     #@@album = Album.find(params[:id])
   end
 

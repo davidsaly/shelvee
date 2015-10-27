@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   resources :albums do 
     resources :photos
+    resources :selections
   end
-
 
   devise_for :users
   get 'static_pages/home'

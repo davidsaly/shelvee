@@ -4,6 +4,8 @@ class Album < ActiveRecord::Base
 
 	has_many :belongings
 	has_many :photos, -> { uniq }, :through => :belongings
+
+	has_many :selections
 	
 	accepts_nested_attributes_for :photos
 
