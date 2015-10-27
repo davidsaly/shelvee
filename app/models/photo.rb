@@ -5,6 +5,9 @@ class Photo < ActiveRecord::Base
 	has_many :belongings
 	has_many :albums, -> { uniq }, :through => :belongings
 
+	has_many :shelvings
+	has_many :selections, :through => :shelvings
+
 	accepts_nested_attributes_for :albums
 	
 	belongs_to :owner, class_name: "User", foreign_key: "owner_id"

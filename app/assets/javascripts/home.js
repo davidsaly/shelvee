@@ -25,6 +25,26 @@ $(document).ready(function () {
         blueimp.Gallery(links, options);
     };
 
+    //$('.masonry-brick').addEventListener('click', function() {
+    $('#selectImage').change(function() {
+    if ($('#selectImage :selected').size()==0) {
+        $('#sel-footer').fadeOut();
+        $('#sel-footer').addClass('navbar-hide');
+    }
+
+    else {
+        $('#sel-footer').fadeIn();
+        $('#sel-footer').removeClass('navbar-hide');
+    }
+    });
+
+    $('#album-title').popover({
+        trigger: 'hover'
+    });
+
 });
+
+
+
 
 

@@ -1,0 +1,29 @@
+
+
+  <%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-href-src' => album_photo_url(@album, u)},{'data-href-src-img' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> <%#image-picker class="thumbnails image-picker-selector" %>
+
+  <nav class="navbar navbar-default navbar-fixed-bottom navbar-hide" id="sel-footer">
+    <div class="container">
+
+    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav navbar-left"> 
+          
+          <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Selection Name">
+              </div>
+              <button type="submit" class="btn btn-default">Create Selection</button>
+          </form>
+          <li></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right"> 
+  				  <button type="button" class="btn btn-default navbar-btn">Download</button>
+            <li></li>
+        </ul>
+
+      </div>
+
+    </div>
+   </nav>

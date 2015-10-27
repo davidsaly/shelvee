@@ -18,7 +18,7 @@
 
 .masonry-brick img {
   border-style: solid;
-  border-width: 4px;
+  border-width: 2px;
   border-color: #ffffff;
 }
 
@@ -69,6 +69,24 @@ img.gallery-photos {
     border: 0 none;
     box-shadow: none;
     border-radius:0;
+}
+
+#album-title {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.navbar-default {
+  background: #ffffff;
+}
+
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+}
+
+.navbar-hide {
+  display: none;
 }
 
 

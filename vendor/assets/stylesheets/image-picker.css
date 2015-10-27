@@ -28,6 +28,11 @@ ul.thumbnails.image_picker_selector {
     ul.thumbnails.image_picker_selector li .thumbnail.selected img {
       border-style: solid;
       /* border-color: #00BFFF; */
+      border-color: #00A904;
+      opacity: 0.3;
+
+      /* 
       border-color: #1E90FF;
-      /* background: #00BFFF; */
-      /* background: #0088cc; } */
+      background: #00BFFF;
+      background: #0088cc; } 
+      */

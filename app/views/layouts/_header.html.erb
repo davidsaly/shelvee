@@ -5,6 +5,9 @@
 
       <ul class="nav navbar-nav navbar-left"> 
         <li><%= link_to "Home", root_path %></li>
+        
+        <a class="navbar-text" id="album-title" data-toggle="popover" data-trigger="focus" data-content= <%= @album.description if (defined?(@album)) %> > <%= @album.title if (defined?(@album)) %> </a>
+
          <li><%#= link_to "Albums", albums_path %></li>
       </ul>
 

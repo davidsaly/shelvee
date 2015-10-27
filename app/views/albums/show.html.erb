@@ -5,16 +5,6 @@
 
 		<p id="notice"><%= notice %></p>
 
-		<p>
-		  <strong>Title:</strong>
-		  <%= @album.title %>
-		</p>
-
-		<p>
-		  <strong>Description:</strong>
-		  <%= @album.description %>
-		</p>
-
 		<%= render 'photoupload' %>
 
 		<%#= link_to 'Edit', edit_album_path(@album) %> 
@@ -74,5 +64,5 @@
 
     <%#= select_tag 'photolist', :multiple => true, class: 'image-picker', class: 'show-html', options_for_select(@photos.collect{ |u| [u.picture, u.id] }) %>
 
-<%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-href-src' => album_photo_url(@album, u)},{'data-href-src-img' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> <%#image-picker class="thumbnails image-picker-selector" %>
+<%= render 'select_footer' %>
    
