@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023132731) do
+ActiveRecord::Schema.define(version: 20151028113753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,19 +67,20 @@ ActiveRecord::Schema.define(version: 20151023132731) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "owner_id"
   end
 
   add_index "selections", ["album_id"], name: "index_selections_on_album_id", using: :btree
 
   create_table "shelvings", force: :cascade do |t|
-    t.integer  "album_id"
     t.integer  "photo_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "selection_id"
   end
 
-  add_index "shelvings", ["album_id"], name: "index_shelvings_on_album_id", using: :btree
   add_index "shelvings", ["photo_id"], name: "index_shelvings_on_photo_id", using: :btree
+  add_index "shelvings", ["selection_id"], name: "index_shelvings_on_selection_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -108,6 +109,7 @@ ActiveRecord::Schema.define(version: 20151023132731) do
   add_foreign_key "cooperations", "users"
   add_foreign_key "photos", "users", column: "owner_id"
   add_foreign_key "selections", "albums"
-  add_foreign_key "shelvings", "albums"
+  add_foreign_key "selections", "users", column: "owner_id"
   add_foreign_key "shelvings", "photos"
+  add_foreign_key "shelvings", "selections"
 end

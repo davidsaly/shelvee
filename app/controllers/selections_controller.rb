@@ -9,14 +9,24 @@ class SelectionsController < ApplicationController
 	def create
 
 		@selection = @album.selections.create(selection_params)
-		redirect_to @album
-	end
+		@selection.owner_id = current_user.id
+    	@selection.save
 
-	def parse_paramase 
+    	#here I need to loop through photos and create shelvings
+    	(params[:photo_list]).each do |ph_id|
+    		ph = @album.photos.find(ph_id.to_i)
+    		@selection.shelvings.create(photo: ph)		
+    	end
+
+		redirect_to @album
 
 	end
 
 	private
+
+	def shelving_params
+
+	end
 
     def set_selection
       @selection = Selection.find(params[:id])
