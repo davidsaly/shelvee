@@ -8,4 +8,6 @@ class Selection < ActiveRecord::Base
 
   accepts_nested_attributes_for :photos
 
+  validates :name, presence: true
+
 end

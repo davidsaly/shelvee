@@ -15,6 +15,9 @@ class AlbumsController < ApplicationController
     @photo = Photo.new
     @photos= @album.photos.all
     @selection=@album.selections.new
+    @selections = @album.selections
+
+    gon.photos = @photos
     #@@album = Album.find(params[:id])
   end
 

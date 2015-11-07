@@ -1,5 +1,7 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
+
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
 
   	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
@@ -7,6 +9,17 @@
         <li><%= link_to "Home", root_path %></li>
         
         <a class="navbar-text" id="album-title" data-toggle="popover" data-trigger="focus" data-content= <%= @album.description if (defined?(@album)) %> > <%= @album.title if (defined?(@album)) %> </a>
+
+        <% if (params[:action] == 'show' && (params[:controller]=='albums' || params[:controller]=='selections'))%>
+          <li><button class="btn btn-default navbar-btn" id="open-gallery">Open Gallery</button></li>
+          
+        <% end %>
+        
+        <% if (params[:action] == 'show' && params[:controller]=='albums' )%>
+          <li><button class="btn btn-default navbar-btn" id="browse-button">Browse or Drag</button></li>
+          <li><%= render 'photoupload' %></li>
+        <% end %>
+
 
          <li><%#= link_to "Albums", albums_path %></li>
       </ul>
@@ -28,5 +41,7 @@
 
     </div>
 
+      <div class="row row-offcanvas row-offcanvas-left">
+
   </div>
- </nav>
+</nav>

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :selections
   end
 
+  resources :shelvings, only: [:create, :destroy]
+
   devise_for :users
   get 'static_pages/home'
 

@@ -1,6 +1,12 @@
 
 <%= form_for [@album, @selection] do %>
-    <%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-href-src' => album_photo_url(@album, u)},{'data-href-src-img' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> <%#image-picker class="thumbnails image-picker-selector" %>
+    <% if params[:controller] == 'albums' %>
+    <%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-href-src' => album_photo_url(@album, u)},{'data-href-src-img' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> 
+    <% else %>
+
+        <%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-href-src' => shelving_path(@selection.shelvings.find_by(photo_id: u.id))},{'data-href-src-img' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> 
+
+    <% end %>
 
     <nav class="navbar navbar-default navbar-fixed-bottom navbar-hide" id="sel-footer">
       <div class="container">
@@ -8,17 +14,29 @@
       	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
           <ul class="nav navbar-nav navbar-left"> 
+            <div class="row">
+              <div class="col-md-6">    
+                <div class="input-group" id="selection-group">
+                          <span class="input-group-addon">
+                            <%= label_tag :checkbox, "Download" %>
+                            <%= check_box_tag "Download", class: "checkbox" %>
+                          </span>
+                          <span>
+                          <%= text_field_tag "selection[name]", nil, :placeholder => "Selection Name", class: "form-control", type: "text" %>
+                          </span>
+                          <span class="input-group-btn">
+                          <%= submit_tag ("Create Selection"), class: "btn btn-default" %>
+                        </span>
 
-                      <li><%= text_field_tag "selection[name]", nil, :placeholder => "Selection Name", class: "form-control" %></li>
-                      <li><%= submit_tag ("Create Selection"), class: "btn btn-default" %></li>
+                </div>
+              </div>
+            </div>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right"> 
           </ul>
 
 <% end %>
-
-          <ul class="nav navbar-nav navbar-right"> 
-    				  <button type="button" class="btn btn-default navbar-btn">Download</button>
-              <li></li>
-          </ul>
 
         </div>
 

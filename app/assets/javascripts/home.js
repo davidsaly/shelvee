@@ -1,5 +1,7 @@
 
-$(document).ready(function () {
+var ready
+
+ready = function () {
     $("#selectImage").imagepicker({
         hide_select: true
     });
@@ -42,7 +44,18 @@ $(document).ready(function () {
         trigger: 'hover'
     });
 
-});
+    $('#browse-button').click(function() {
+        $('#file-upload').click();
+    });
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+
+
+
 
 
 

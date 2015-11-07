@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -40,6 +41,9 @@ gem 'blueimp-file-upload-rails', '~> 8.6.1.1'
 gem 'blueimp-gallery-rails', '~> 2.7.0'
 gem "jquery-fileupload-rails"
 gem 'image-picker-rails'
+
+#gon for working with JSON data accross JavaScript and Rails
+gem 'gon'
 
 #grid layout of the gallery
 gem 'masonry-rails'
