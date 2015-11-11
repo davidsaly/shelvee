@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :albums do 
     resources :photos
-    resources :selections
+    resources :selections do
+      post 'download', :on => :member
+    end
   end
 
   resources :shelvings, only: [:create, :destroy]

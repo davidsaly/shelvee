@@ -8,15 +8,10 @@
       <ul class="nav navbar-nav navbar-left"> 
         <li><%= link_to "Home", root_path %></li>
         
-        <a class="navbar-text" id="album-title" data-toggle="popover" data-trigger="focus" data-content= <%= @album.description if (defined?(@album)) %> > <%= @album.title if (defined?(@album)) %> </a>
-
-        <% if (params[:action] == 'show' && (params[:controller]=='albums' || params[:controller]=='selections'))%>
-          <li><button class="btn btn-default navbar-btn" id="open-gallery">Open Gallery</button></li>
-          
-        <% end %>
+        <a class="navbar-text" id="album-title" data-toggle="popover" data-trigger="focus" data-content= <%= "#{@album.description}" if (defined?(@album)) %> > <%= @album.title if (defined?(@album)) %> </a>
         
         <% if (params[:action] == 'show' && params[:controller]=='albums' )%>
-          <li><button class="btn btn-default navbar-btn" id="browse-button">Browse or Drag</button></li>
+          <li><button class="btn btn-default navbar-btn" id="browse-button"><span class="glyphicon glyphicon-cloud-upload browse-span"></span><span class="browse-span"> Browse or Drag</span></button></li>
           <li><%= render 'photoupload' %></li>
         <% end %>
 

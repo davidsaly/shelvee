@@ -22,11 +22,11 @@
   border-color: #ffffff;
 }
 
-.masonry-brick:hover a {
+.masonry-brick:hover .delete-link {
    display: inline;  
 }
 
-.grid-item:hover a {
+.grid-item:hover .delete-link {
    display: inline;  
 }
 
@@ -101,4 +101,30 @@ img.gallery-photos {
   margin-top: 8px;
 }
 
+#browse-button {
+  background: #bfbfbf;
+}
+.browse-span {
+  color: #ffffff;
+}
 
+#open-gallery {
+  background: #bfbfbf;  
+}
+
+#open-gallery-span {
+  color: #ffffff;  
+}
+
+.footer-buttons {
+  background: #bfbfbf;
+  color: #ffffff;
+}
+
+#download-button{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  
+}

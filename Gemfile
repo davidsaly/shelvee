@@ -37,6 +37,9 @@ gem 'carrierwave'
 gem 'mini_magick'  
 gem "paperclip", "~> 4.2"
 
+#zip
+gem 'rubyzip'
+
 gem 'blueimp-file-upload-rails', '~> 8.6.1.1'
 gem 'blueimp-gallery-rails', '~> 2.7.0'
 gem "jquery-fileupload-rails"

@@ -279,12 +279,12 @@
       image.attr("src", this.option.data("img-src"));
       //david experiment (delete link)
       deletelink=jQuery("<a data-confirm='You sure?' class='btn btn-default delete-link' rel='nofollow'>delete</a>");
-      deletelink.attr("href", this.option.data("href-src"))
+      deletelink.attr("href", this.option.data("delete-link"))
       deletelink.attr("data-method","delete")
    
       //showlink
       showlink=jQuery("<a data-gallery='' class='photo-links btn btn-default show-link' >show</a>")
-      showlink.attr("href", this.option.data("href-src-img"))
+      showlink.attr("href", this.option.data("show-link"))
 
       thumbnail = jQuery("<div class='thumbnail'>");
       thumbnail.click({

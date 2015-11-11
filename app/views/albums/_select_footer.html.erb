@@ -1,10 +1,10 @@
 
 <%= form_for [@album, @selection] do %>
     <% if params[:controller] == 'albums' %>
-    <%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-href-src' => album_photo_url(@album, u)},{'data-href-src-img' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> 
+    <%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-delete-link' => album_photo_url(@album, u)},{'data-show-link' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> 
     <% else %>
 
-        <%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-href-src' => shelving_path(@selection.shelvings.find_by(photo_id: u.id))},{'data-href-src-img' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> 
+        <%= select_tag 'photo_list', options_for_select(@photos.collect{ |u| [ u.id, {'data-img-src' => u.picture.url(:thumb)},{'data-delete-link' => shelving_path(@selection.shelvings.find_by(photo_id: u.id))},{'data-show-link' => u.picture.url}] }), :multiple => true, id: 'selectImage', class: 'show-html image-picker' %> 
 
     <% end %>
 
@@ -15,11 +15,14 @@
 
           <ul class="nav navbar-nav navbar-left"> 
             <div class="row">
+              <div class="col-md-2">
+                  <button class="btn btn-default navbar-btn" id="open-gallery"><span id="open-gallery-span">Open Gallery</span></button>
+              </div>
               <div class="col-md-6">    
                 <div class="input-group" id="selection-group">
                           <span class="input-group-addon">
-                            <%= label_tag :checkbox, "Download" %>
-                            <%= check_box_tag "Download", class: "checkbox" %>
+                            <%= label_tag :download, "Download" %>
+                            <%= check_box_tag "download", "yes", class: "checkbox" %>
                           </span>
                           <span>
                           <%= text_field_tag "selection[name]", nil, :placeholder => "Selection Name", class: "form-control", type: "text" %>
@@ -27,18 +30,22 @@
                           <span class="input-group-btn">
                           <%= submit_tag ("Create Selection"), class: "btn btn-default" %>
                         </span>
-
                 </div>
               </div>
             </div>
           </ul>
 
           <ul class="nav navbar-nav navbar-right"> 
+            <div class="row">
+              <div class="col-md-2">    
+               
+              
+              </div>
+            </div>
           </ul>
-
-<% end %>
 
         </div>
 
       </div>
      </nav>
+<% end %>

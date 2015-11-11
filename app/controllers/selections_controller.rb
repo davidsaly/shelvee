@@ -1,6 +1,13 @@
+    require 'rubygems'
+    require 'zip'
+    require 'open-uri'
+
 class SelectionsController < ApplicationController
-    before_action :set_selection, only: [:show, :edit, :update, :destroy]
+    before_action :set_selection, only: [:show, :edit, :update, :destroy, :download]
 	before_action :set_album
+    before_action :make_export, only: [:create]
+
+
 
     def show
         @selections = @album.selections
@@ -27,6 +34,10 @@ class SelectionsController < ApplicationController
 
             redirect_to [@album, @selection], notice: 'Selection was successfully created.'
 
+            if @export == "yes"
+                export_photos
+            end
+
         else
             redirect_to @album
         end
@@ -37,8 +48,8 @@ class SelectionsController < ApplicationController
         redirect_to @album   
     end
 
-    def export
-      
+    def download
+        export_photos
     end
 
     #def update_erase
@@ -62,6 +73,30 @@ class SelectionsController < ApplicationController
 
 	def set_album
       @album = current_user.albums.find params[:album_id]
+    end
+
+    def make_export
+        @export = params[:download]
+    end
+
+    def export_photos
+
+        t = Tempfile.new("#{@selection.name}-#{Time.now}")
+          Zip::OutputStream.open(t.path) do |z|
+            @selection.photos.each do |item|
+              z.put_next_entry(File.basename(item.picture.url))
+              url1 = Rails.root + item.picture.path #Rails.root.to_s + Dir.pwd 'http://0.0.0.0:3000'
+              url1_data = open(url1)
+              z.print IO.read(url1_data)
+          end
+        end
+
+        send_file t.path, :type => 'application/zip',
+                                 :disposition => 'attachment',
+                                 :filename => "#{@selection.name}.zip"
+                                 
+        t.close 
+ 
     end
 
 end

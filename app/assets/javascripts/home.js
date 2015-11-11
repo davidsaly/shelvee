@@ -32,11 +32,13 @@ ready = function () {
     if ($('#selectImage :selected').size()==0) {
         $('#sel-footer').fadeOut();
         $('#sel-footer').addClass('navbar-hide');
+        $('#download-button').css('bottom','10px')
     }
 
     else {
         $('#sel-footer').fadeIn();
         $('#sel-footer').removeClass('navbar-hide');
+        $('#download-button').css('bottom','50px')
     }
     });
 
