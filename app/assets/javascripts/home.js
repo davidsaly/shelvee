@@ -32,13 +32,15 @@ ready = function () {
     if ($('#selectImage :selected').size()==0) {
         $('#sel-footer').fadeOut();
         $('#sel-footer').addClass('navbar-hide');
-        $('#download-button').css('bottom','10px')
+        $('#download-button').css('bottom','10px');
+        $('#sel-del-button').css('bottom','50px')
     }
 
     else {
         $('#sel-footer').fadeIn();
         $('#sel-footer').removeClass('navbar-hide');
-        $('#download-button').css('bottom','50px')
+        $('#download-button').css('bottom','50px');
+        $('#sel-del-button').css('bottom','90px')
     }
     });
 

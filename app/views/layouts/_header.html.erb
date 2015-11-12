@@ -9,6 +9,7 @@
         <li><%= link_to "Home", root_path %></li>
         
         <a class="navbar-text" id="album-title" data-toggle="popover" data-trigger="focus" data-content= <%= "#{@album.description}" if (defined?(@album)) %> > <%= @album.title if (defined?(@album)) %> </a>
+        <li class="navbar-text"><%= @selection.name if (defined?(@selection))  %></li>
         
         <% if (params[:action] == 'show' && params[:controller]=='albums' )%>
           <li><button class="btn btn-default navbar-btn" id="browse-button"><span class="glyphicon glyphicon-cloud-upload browse-span"></span><span class="browse-span"> Browse or Drag</span></button></li>
