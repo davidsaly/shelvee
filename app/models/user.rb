@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :photos, :foreign_key => :owner_id
   has_many :selections, :foreign_key => :owner_id
 
+  has_many :invites, :class_name => "Invitation", :foreign_key => 'recipient_id'
+  has_many :sent_invites, :class_name => "Invitation", :foreign_key => 'sender_id'
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

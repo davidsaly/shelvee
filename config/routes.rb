@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   end
 
   resources :shelvings, only: [:create, :destroy]
+  resources :invitations
 
   devise_for :users
+
   get 'static_pages/home'
 
   # The priority is based upon order of creation: first created -> highest priority.
