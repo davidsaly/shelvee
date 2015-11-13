@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :shelvings, only: [:create, :destroy]
   resources :invitations
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "my_devise/registrations" }
 
   get 'static_pages/home'
 

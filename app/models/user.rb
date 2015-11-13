@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :cooperations
   has_many :albums, :through => :cooperations
 
-  has_many :albums, :foreign_key => :owner_id
+  #has_many :albums, :foreign_key => :owner_id
   has_many :photos, :foreign_key => :owner_id
   has_many :selections, :foreign_key => :owner_id
 

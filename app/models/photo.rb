@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
 	has_many :contributions
 	has_many :users, :through => :contributions
 
-	has_many :belongings
+	has_many :belongings, dependent: :destroy
 	has_many :albums, -> { uniq }, :through => :belongings
 
 	has_many :shelvings

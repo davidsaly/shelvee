@@ -21,4 +21,11 @@ class InvitationMailer < ApplicationMailer
 
   end
 
+  def existing_user_invitation(invitation, shared_album_path)
+    @shared_album_path = shared_album_path
+    @inviter = User.find_by_id(invitation.sender_id).email
+    
+    mail(:to => invitation.recipient_email, :subject => "Album Invitation on Shelvee")
+  end
+
 end

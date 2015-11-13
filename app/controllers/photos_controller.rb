@@ -64,10 +64,10 @@ class PhotosController < ApplicationController
   # DELETE /photos/1.json
   def destroy
     
-      @belonging = @photo.belongings
-      @photo.belongings.delete(@belonging)
-      #@photo.belongings.find_by(id: @belonging).destroy
-      @belonging.destroy
+      #@belonging = @photo.belongings
+      #@photo.belongings.delete(@belonging)
+              ##@photo.belongings.find_by(id: @belonging).destroy
+      #@belonging.destroy
       @photo.destroy
       respond_to do |format|
         format.html { redirect_to @album, notice: 'Photo was successfully destroyed.' }

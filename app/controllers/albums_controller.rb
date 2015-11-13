@@ -5,8 +5,13 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+    @albums = current_user.albums.all
     @album = Album.new
+
+    @my_albums = current_user.albums.where(owner: current_user)
+    @shared_albums = current_user.albums.where.not(owner: current_user)
+
+    #@cooperations = 
   end
 
   # GET /albums/1
@@ -36,6 +41,9 @@ class AlbumsController < ApplicationController
   def create
     #@album = Album.new(album_params)
     @album = current_user.albums.build(album_params)
+    @album.owner_id = current_user.id
+    @album.save
+    @album.cooperations.create!(user: current_user)
 
     respond_to do |format|
       if @album.save
