@@ -36,6 +36,7 @@ gem 'omniauth-facebook'
 gem 'carrierwave'          
 gem 'mini_magick'  
 gem "paperclip", "~> 4.2"
+gem "fog"
 
 #zip
 gem 'rubyzip'
