@@ -5,6 +5,7 @@ class Invitation < ActiveRecord::Base
 	belongs_to :album
 
 	before_create :generate_token
+	after_create :set_default_to_false
 	before_save :check_user_existence
 
 	def generate_token
@@ -17,4 +18,9 @@ class Invitation < ActiveRecord::Base
 			self.recipient_id = recipient.id
 		end
 	end
+
+	def set_default_to_false
+		update_attribute(:accepted, false)
+	end
+
 end

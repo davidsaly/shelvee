@@ -14,4 +14,6 @@
 <%#= render 'albums/selection_footer' %>
 
 <%= button_to "Download this Selection", download_album_selection_path, class: "btn btn-default navbar-btn footer-buttons", id: "download-button" %>
-<%= link_to "Delete this Selection", album_selection_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default navbar-btn footer-buttons", id: "sel-del-button" %>
+<% if @album.owner_id == current_user.id %>
+	<%= link_to "Delete this Selection", album_selection_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default navbar-btn footer-buttons", id: "sel-del-button" %>
+<% end %>

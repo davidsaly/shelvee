@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :shelvings, only: [:create, :destroy]
-  resources :invitations
+  resources :invitations do
+    post 'accept', :on => :member
+  end
 
   devise_for :users, controllers: { registrations: "my_devise/registrations" }
 

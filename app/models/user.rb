@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :photos, :through => :contributions
 
   has_many :cooperations
-  has_many :albums, :through => :cooperations
+  has_many :albums,-> { uniq }, :through => :cooperations
 
   #has_many :albums, :foreign_key => :owner_id
   has_many :photos, :foreign_key => :owner_id

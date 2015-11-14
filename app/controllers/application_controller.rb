@@ -6,10 +6,18 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :find_invitations
+
+  #@inv = current_user.invites.where(accepted: false)
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :invitation_token
+  end
+
+  def find_invitations
+  	@inv = current_user.invites.where(accepted: false)
   end
 
 end

@@ -136,3 +136,20 @@ img.gallery-photos {
   cursor: pointer;  
   color: #ffffff; 
 }
+
+.fill-width.dropdown {
+    position: static;
+}
+.fill-width.dropdown > .dropdown-menu {
+    left: auto;
+    position: absolute;
+}
+.fill-width.dropdown > .dropdown-menu > li > a {
+   white-space: normal; 
+}
+
+.inv-dd {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+

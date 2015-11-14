@@ -34,8 +34,34 @@
 
       <ul class="nav navbar-nav navbar-right"> 
          <% if user_signed_in? %>
-				    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-			   <% else %>
+            
+            <% if @inv.count > 0 %>
+              <li class="dropdown fill-width">
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge"><%= @inv.count %></span></a>
+                  
+                    <ul class="dropdown-menu invitation-dropdown" >
+                      <% @inv.each do |invite| %>
+                        
+                        <li><p class="inv-dd"><strong><%= User.find_by_id(invite.sender_id).email %></strong> invited you to share her/his album <strong><%= Album.find_by_id(invite.album_id).title%></strong></p><%= button_to "Accept", accept_invitation_path(invite) ,class: "btn btn-default footer-buttons inv-dd" %></li>
+
+                        <li role="separator" class="divider"></li>
+                      <% end %>
+                    </ul>
+
+              </li>
+            <% end %>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">My Profile</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+                </ul>
+            </li>
+
+         <% else %>
 				    <li><%= link_to('Login', new_user_session_path)  %></li>
 			   <% end %>
       </ul>
