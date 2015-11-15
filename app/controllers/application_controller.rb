@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  before_action :find_invitations
+  #before_action :find_invitations
+  before_filter :find_invitations
 
   #@inv = current_user.invites.where(accepted: false)
 
@@ -17,7 +18,9 @@ class ApplicationController < ActionController::Base
   end
 
   def find_invitations
-  	@inv = current_user.invites.where(accepted: false)
+    if current_user
+  	 @inv = current_user.invites.where(accepted: false)
+    end
   end
 
 end
