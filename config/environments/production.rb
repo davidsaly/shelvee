@@ -82,7 +82,7 @@ Rails.application.configure do
   config.force_ssl = true
 
   #adjusted this (david)(required by Heroku)
-  config.serve_static_assets = true
+  config.serve_static_files = true
   #changed this to true (david)
   config.assets.compile = false
 end
