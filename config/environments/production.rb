@@ -87,5 +87,5 @@ Rails.application.configure do
   config.assets.compile = false
 
   #let's see if this will work (shouldn't compile the assets into one file)(heroku does it itself)
-  config.assets.debug = true
+  config.assets.debug = false
 end
