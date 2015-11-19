@@ -83,6 +83,9 @@ Rails.application.configure do
 
   #adjusted this (david)(required by Heroku)
   #config.serve_static_files = false
-  #changed this to true (david)
+  #has to be false
   config.assets.compile = false
+
+  #let's see if this will work (shouldn't compile the assets into one file)
+  config.assets.debug = true
 end
