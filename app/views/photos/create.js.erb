@@ -3,9 +3,7 @@
 <% else %>
 	var $newPhoto = $("<%= j render (@photo) %>");
   	$("#selectImage").append($newPhoto); //.masonry( 'appended', $newPhoto, true).masonry( 'reload' );
-  	$("#selectImage").imagepicker({
-        hide_select: true
-    });
+  	$("#selectImage").imagepicker({hide_select: true });
     $('.grid').masonry( 'reload' );
   	$('.image_picker_selector').masonry('reload');
 

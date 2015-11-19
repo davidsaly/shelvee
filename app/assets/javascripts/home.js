@@ -17,28 +17,27 @@ windowReady = function () {
 
 
     document.getElementById('open-gallery').onclick = function(event) {
-    //document.getElementsByClassName('show-link').onclick = function(event) {
-    event = event || window.event;
-    var gal = document.getElementById('the-gal');
-    var target = event.target || event.srcElement;
-        link = target.src ? target.parentNode : target;
-        options = {index: link, event: event};
-        links = gal.getElementsByClassName('show-link');
-        blueimp.Gallery(links, options)
+        event = event || window.event;
+        var gal = document.getElementById('the-gal');
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = {index: link, event: event},
+            links = gal.getElementsByClassName('show-link');
+            blueimp.Gallery(links, options);
     };
 
     $('#selectImage').change(function() {
-    if ($('#selectImage :selected').size()==0) {
+    if ($('#selectImage :selected').size() === 0) {
         $('#sel-footer').fadeOut();
         $('#sel-footer').addClass('navbar-hide');
         $('#download-button').css('bottom','10px');
-        $('#sel-del-button').css('bottom','50px')
+        $('#sel-del-button').css('bottom','50px');
     } 
     else {
         $('#sel-footer').fadeIn();
         $('#sel-footer').removeClass('navbar-hide');
         $('#download-button').css('bottom','50px');
-        $('#sel-del-button').css('bottom','90px')
+        $('#sel-del-button').css('bottom','90px');
     }
     });
 
@@ -47,7 +46,7 @@ windowReady = function () {
     });
 
     $('#browse-button').click(function() {
-        $('#file-upload').click()
+        $('#file-upload').click();
     });
 
 };

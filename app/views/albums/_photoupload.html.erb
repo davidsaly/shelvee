@@ -1,6 +1,6 @@
 
 
-    <%= form_for [@album, @photo] , html: {multipart: true}, :html => {:id => "new_photo"}, html: { hidden: true } do |f| %>
+    <%= form_for [@album, @photo] ,remote: true, html: {multipart: true}, :html => {:id => "new_photo"}, html: { hidden: true } do |f| %>
       <%# byebug %>
       <% if @photo.errors.any? %>
         <div id="error_explanation">
