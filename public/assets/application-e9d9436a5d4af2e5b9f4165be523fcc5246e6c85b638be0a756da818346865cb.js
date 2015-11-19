@@ -20476,7 +20476,7 @@ var widget = $.widget;
 
 })( window, jQuery );
 
-var ready
+var ready;
 
 ready = function () {
     $("#selectImage").imagepicker({
