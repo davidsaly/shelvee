@@ -52,6 +52,9 @@ gem 'gon'
 #grid layout of the gallery
 gem 'masonry-rails'
 
+#figaro for configurations
+gem "figaro"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
