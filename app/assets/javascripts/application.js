@@ -16,11 +16,6 @@
 //= require bootstrap-sprockets
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
-//= require bootstrap-image-gallery
-//= require blueimp-helper
-//= require blueimp-gallery-fullscreen
-//= require blueimp-gallery-indicator
-//= require blueimp-gallery
 //= require image-picker
 //= require masonry/jquery.masonry
 //= require masonry/jquery.imagesloaded.min

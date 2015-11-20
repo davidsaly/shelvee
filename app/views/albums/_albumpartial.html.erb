@@ -25,49 +25,51 @@
     
         <div class="col-md-10">
 
-  <div id="blueimp-gallery" class="blueimp-gallery">
-	<div class="slides"></div>
-	<h3 class="title"></h3>
-	<a class="prev">‹</a>
-	<a class="next">›</a>
-	<a class="close">×</a>
-	<a class="play-pause"></a>
-	<ol class="indicator"></ol>
-        <div class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title"></h4>
-                    </div>
-                    <div class="modal-body next"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left prev">
-                            <i class="glyphicon glyphicon-chevron-left"></i>
-                            Previous
-                        </button>
-                        <button type="button" class="btn btn-primary next">
-                            Next
-                            <i class="glyphicon glyphicon-chevron-right"></i>
-                        </button>
+            <%# this is a comment %>
+            <% if false %>
+
+              <div id="blueimp-gallery" class="blueimp-gallery">
+            	<div class="slides"></div>
+            	<h3 class="title"></h3>
+            	<a class="prev">‹</a>
+            	<a class="next">›</a>
+            	<a class="close">×</a>
+            	<a class="play-pause"></a>
+            	<ol class="indicator"></ol>
+                    <div class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body next"></div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default pull-left prev">
+                                        <i class="glyphicon glyphicon-chevron-left"></i>
+                                        Previous
+                                    </button>
+                                    <button type="button" class="btn btn-primary next">
+                                        Next
+                                        <i class="glyphicon glyphicon-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <div id="masonry-container" class="grid infinite-scroll clearfix" > 
-        <ul id="to-be-appended" >
-            <%#= render @photos %>
-        </ul>
-    </div> 
+                <div id="masonry-container" class="grid infinite-scroll clearfix" > 
+                    <ul id="to-be-appended" >
+                        <%#= render @photos %>
+                    </ul>
+                </div> 
 
-    <%#transitions-enabled  %>
+                <%#transitions-enabled  %>
 
-    <%#= select_tag 'photolist', :multiple => true, class: 'image-picker', class: 'show-html', options_for_select(@photos.collect{ |u| [u.picture, u.id] }) %>
-
-    <%# render select_footer was here %>
-    <%= render 'albums/select_footer' %>
+                <%# end of comment %>
+                <% end %>
+                <%= render 'albums/select_footer' %>
         </div>
     </div>
 </div>

@@ -41,10 +41,15 @@ gem "fog"
 #zip
 gem 'rubyzip'
 
-gem 'blueimp-file-upload-rails', '~> 8.6.1.1'
-gem 'blueimp-gallery-rails', '~> 2.7.0'
+#gem 'blueimp-file-upload-rails', '~> 8.6.1.1'
+#gem 'blueimp-gallery-rails', '~> 2.7.0'
 gem "jquery-fileupload-rails"
-gem 'image-picker-rails'
+#gem 'image-picker-rails'
+# using rails-assets.org
+source 'https://rails-assets.org' do
+	gem 'rails-assets-blueimp-gallery'
+	gem 'rails-assets-blueimp-bootstrap-image-gallery'
+end
 
 #gon for working with JSON data accross JavaScript and Rails
 gem 'gon'
