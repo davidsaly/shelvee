@@ -84,10 +84,11 @@ class SelectionsController < ApplicationController
         t = Tempfile.new("#{@selection.name}-#{Time.now}")
           Zip::OutputStream.open(t.path) do |z|
             @selection.photos.each do |item|
-              z.put_next_entry(File.basename(item.picture.url))
-              url1 =  item.picture.path # Rails.root + path #Rails.root.to_s + Dir.pwd 'http://0.0.0.0:3000'
-              url1_data = open(url1)
-              z.print IO.read(url1_data)
+                z.put_next_entry(File.basename(item.picture.url))
+                url1 =  item.picture.path if Rails.env.development? # Rails.root + path #Rails.root.to_s + Dir.pwd 'http://0.0.0.0:3000'
+                url1 = item.picture.url if Rails.env.production?
+                url1_data = open(url1)
+                z.print IO.read(url1_data)
           end
         end
 
