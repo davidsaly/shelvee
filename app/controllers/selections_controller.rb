@@ -85,7 +85,7 @@ class SelectionsController < ApplicationController
           Zip::OutputStream.open(t.path) do |z|
             @selection.photos.each do |item|
               z.put_next_entry(File.basename(item.picture.url))
-              url1 = Rails.root + item.picture.path #Rails.root.to_s + Dir.pwd 'http://0.0.0.0:3000'
+              url1 =  item.picture.path # Rails.root + path #Rails.root.to_s + Dir.pwd 'http://0.0.0.0:3000'
               url1_data = open(url1)
               z.print IO.read(url1_data)
           end
