@@ -3,10 +3,21 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
 
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Shelvee", root_path, class: "navbar-brand" %>
+      </div>
+
   	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-left"> 
-        <li><%= link_to "Home", root_path %></li>
+        <li><%#= link_to "Home", root_path %></li>
         
         <a class="navbar-text" id="album-title" data-toggle="popover" data-trigger="focus" data-content= <%= "#{@album.description}" if (defined?(@album)) %> > <%= @album.title if (defined?(@album)) %> </a>
         <li class="navbar-text"><%= @selection.name if (defined?(@selection))  %></li>
@@ -35,31 +46,32 @@
       <ul class="nav navbar-nav navbar-right"> 
          <% if user_signed_in? %>
             
-            <% if @inv.count > 0 %>
-              <li class="dropdown fill-width">
+                <% if @inv.count > 0 %>
+                  <li class="dropdown fill-width col-xs-3">
 
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge"><%= @inv.count %></span></a>
-                  
-                    <ul class="dropdown-menu invitation-dropdown" >
-                      <% @inv.each do |invite| %>
-                        
-                        <li><p class="inv-dd"><strong><%= User.find_by_id(invite.sender_id).email %></strong> invited you to share her/his album <strong><%= Album.find_by_id(invite.album_id).title%></strong></p><%= button_to "Accept", accept_invitation_path(invite) ,class: "btn btn-default footer-buttons inv-dd" %></li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="badge"><%= @inv.count %></span></a>
+                      
+                        <ul class="dropdown-menu invitation-dropdown" >
+                          <% @inv.each do |invite| %>
+                            
+                            <li><p class="inv-dd"><strong><%= User.find_by_id(invite.sender_id).email %></strong> invited you to share her/his album <strong><%= Album.find_by_id(invite.album_id).title%></strong></p><%= button_to "Accept", accept_invitation_path(invite) ,class: "btn btn-default footer-buttons inv-dd" %></li>
 
-                        <li role="separator" class="divider"></li>
-                      <% end %>
+                            <li role="separator" class="divider"></li>
+                          <% end %>
+                        </ul>
+
+                  </li>
+                <% end %>
+
+                <li class="dropdown col-xs-9">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">My Profile</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                     </ul>
-
-              </li>
-            <% end %>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">My Profile</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-                </ul>
-            </li>
+                </li>
+              
 
          <% else %>
 				    <li><%= link_to('Login', new_user_session_path)  %></li>
