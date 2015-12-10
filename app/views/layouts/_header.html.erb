@@ -19,9 +19,6 @@
       <ul class="nav navbar-nav navbar-left"> 
         <li><%#= link_to "Home", root_path %></li>
         
-        <a class="navbar-text" id="album-title" data-toggle="popover" data-trigger="focus" data-content= <%= "#{@album.description}" if (defined?(@album)) %> > <%= @album.title if (defined?(@album)) %> </a>
-        <li class="navbar-text"><%= @selection.name if (defined?(@selection))  %></li>
-        
         <% if (params[:action] == 'show' && params[:controller]=='albums' )%>
           <li><button class="btn btn-default navbar-btn" id="browse-button"><span class="glyphicon glyphicon-cloud-upload browse-span"></span><span class="browse-span"> Browse or Drag</span></button></li>
           <li><%= render 'photoupload' %></li>
@@ -29,18 +26,18 @@
               <%= form_for @invitation , :url => invitations_path, html: {:class => 'navbar-form navbar-left'} do |f| %>
                 <%= f.hidden_field :album_id, :value => @invitation.album_id %>
               
-                    <div class="input-group">
+                  
+                    <div class="input-group" id="email-invite">
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-envelope"></span>
                         </span>
                       <%= f.email_field :recipient_email, :placeholder => "email", class: 'form-control' %>
                       <span class="input-group-btn"><%= f.submit 'Invite', class: 'btn btn-default footer-buttons' %></span>
                     </div>
+                  
               <% end %>
         <% end %>
 
-
-         <li><%#= link_to "Albums", albums_path %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right"> 

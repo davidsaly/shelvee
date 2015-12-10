@@ -14,11 +14,11 @@
         <!-- sidebar -->
         <div class="col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
             
-            <ul class="nav">
+            <ul class="nav nav-pills nav-stacked">
                 <li></li>
-              <li class="active"><%= link_to 'All photos', @album%></li>
-                <% @selections.each do |sel| %>    
-                    <li><%= link_to sel.name, [@album, sel] %>  </li>
+              <li class="h3"><%= link_to @album.title, @album %></li>
+                <% @selections.first(@selections.count).each do |sel| %>    
+                <li><%= link_to sel.name, [@album, sel] %>  </li>
                 <% end %>   
             </ul>
         </div>

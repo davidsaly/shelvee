@@ -25,13 +25,13 @@
 
           <ul class="nav navbar-nav navbar-left"> 
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-2 col-xs-7">
                   <button class="btn btn-default navbar-btn" id="open-gallery"><span id="open-gallery-span">Open Gallery</span></button>
               </div>
-              <div class="col-md-6">    
+              <div class="col-md-6 col-xs-12">    
                 <div class="input-group navbar-btn col-xs-12" id="selection-group">
                           
-                          <span class="input-group-addon">
+                          <span class="input-group-addon btn">
                             <%#= label_tag :download, "Download" %>
                             <%= check_box_tag "download", "yes", checked = false,  class: "checkbox" %>
                           </span>
